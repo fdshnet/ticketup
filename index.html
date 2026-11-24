@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TicketUp | Ingressos para o Museu</title>
+  <meta name="description" content="Plataforma moderna de venda e emissão de ingressos para exposições e eventos do Museu TicketUp.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Top Notification Bar -->
+  <aside class="announcement-bar" aria-label="Aviso geral">
+    <div class="container announcement-content">
+      <span>✨ <strong>Temporada 2026:</strong> Novas exposições imersivas em cartaz. Agende com antecedência!</span>
+      <div class="announcement-links">
+        <button id="btnOpenMailbox" class="pill-btn mail-pill" title="Ver e-mails simulados recebidos">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <span>Caixa de Entrada Simulada</span>
+          <span id="unreadMailBadge" class="badge-count" style="display: none;">0</span>
+        </button>
+        <button id="btnOpenAdmin" class="pill-btn admin-pill" title="Painel do Administrador">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+          <span>Painel Admin</span>
+        </button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Main Header & Navigation -->
+  <header class="main-header">
+    <div class="container header-container">
+      <!-- Customizable Logo -->
+      <a href="#" class="brand-logo" id="siteLogoLink" aria-label="TicketUp Página Inicial">
+        <!-- SVG Logo: Easy to replace or change -->
+        <div class="logo-icon-wrapper">
+          <svg class="ticketup-logo-svg" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="48" height="48" rx="12" fill="#09090B"/>
+            <path d="M14 14C14 12.8954 14.8954 12 16 12H32C33.1046 12 34 12.8954 34 14V19C32.3431 19 31 20.3431 31 22C31 23.6569 32.3431 25 34 25V34C34 35.1046 33.1046 36 32 36H16C14.8954 36 14 35.1046 14 34V25C15.6569 25 17 23.6569 17 22C17 20.3431 15.6569 19 14 19V14Z" fill="#1D4ED8"/>
+            <path d="M24 16L24 30M24 16L19 21M24 16L29 21" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="24" cy="33" r="1.5" fill="#60A5FA"/>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <span class="brand-name">Ticket<span class="brand-accent">Up</span></span>
+          <span class="brand-tagline">Museu de Arte & História</span>
+        </div>
+      </a>
+
+      <!-- Navigation links -->
+      <nav class="nav-menu" id="navMenu">
+        <a href="#exposicoes" class="nav-link active">Exposições</a>
+        <a href="#experiencias" class="nav-link">Experiências</a>
+        <a href="#sobre" class="nav-link">O Museu</a>
+        <a href="#faq" class="nav-link">Dúvidas</a>
+      </nav>
+
+      <!-- Header Actions -->
+      <div class="header-actions">
+        <button id="btnHeaderAdmin" class="btn btn-outline-dark btn-sm">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+          Área do Museu
+        </button>
+        <a href="#exposicoes" class="btn btn-primary btn-sm">
+          Comprar Ingressos
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <div class="hero-badge">
+          <span class="badge-dot"></span>
+          Ingressos Oficiais & Acesso Imediato
+        </div>
+        <h1 class="hero-title">
+          Explore séculos de arte, cultura e imaginação no <span class="highlight-blue">Museu TicketUp</span>.
+        </h1>
+        <p class="hero-description">
+          Garanta seu acesso online com comodidade. Selecione sua data preferida, adquira seus ingressos sem filas e receba os vouchers digitais diretamente no seu e-mail.
+        </p>
+        <div class="hero-cta-group">
+          <a href="#exposicoes" class="btn btn-primary btn-lg">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+            Ver Ingressos Disponíveis
+          </a>
+          <button id="btnHeroSimulate" class="btn btn-outline-primary btn-lg">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            Como Funciona a Compra
+          </button>
+        </div>
+
+        <!-- Trust Metrics -->
+        <div class="hero-metrics">
+          <div class="metric-item">
+            <span class="metric-number">+180k</span>
+            <span class="metric-label">Visitantes ao ano</span>
+          </div>
+          <div class="metric-divider"></div>
+          <div class="metric-item">
+            <span class="metric-number">4.9 ★</span>
+            <span class="metric-label">Avaliação do público</span>
+          </div>
+          <div class="metric-divider"></div>
+          <div class="metric-item">
+            <span class="metric-number">100%</span>
+            <span class="metric-label">Digital e Seguro</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="hero-card-featured">
+          <div class="featured-image-wrapper">
+            <img src="https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=900&q=80" alt="Galeria de Arte do Museu" class="featured-img" loading="eager">
+            <span class="featured-tag">Destaque da Semana</span>
+          </div>
+          <div class="featured-card-body">
+            <div class="featured-header">
+              <div>
+                <span class="featured-sub">Exposição Principal</span>
+                <h3 class="featured-name">Renascimento Imersivo: Da Vinci & Michelangelo</h3>
+              </div>
+              <span class="featured-price">A partir de R$ 30,00</span>
+            </div>
+            <p class="featured-text">Projeções 360°, réplicas de manuscritos originais e uma imersão sensorial inesquecível pelas obras-primas que moldaram o mundo.</p>
+            <div class="featured-footer">
+              <span class="featured-info">🕒 Terça a Domingo • 09:00 às 20:00</span>
+              <button class="btn btn-primary btn-sm btn-quick-buy" data-ticket-id="1">
+                Garantir Ingresso
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Filter & Exhibition Catalog Section -->
+  <section class="section catalog-section" id="exposicoes">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-title-wrapper">
+          <span class="section-tag">Programação Atual</span>
+          <h2 class="section-title">Ingressos e Exposições em Cartaz</h2>
+          <p class="section-subtitle">Escolha a experiência ideal para você, sua família ou grupo escolar. Ingressos com hora marcada.</p>
+        </div>
+        <div class="catalog-controls">
+          <!-- Search input -->
+          <div class="search-box">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <input type="text" id="searchInput" placeholder="Buscar por exposição ou tema...">
+          </div>
+        </div>
+      </div>
+
+      <!-- Categories Filter Tabs -->
+      <div class="filter-tabs" id="filterTabs">
+        <button class="filter-btn active" data-category="all">Todos os Ingressos</button>
+        <button class="filter-btn" data-category="Arte">Arte & Pintura</button>
+        <button class="filter-btn" data-category="História">História & Arqueologia</button>
+        <button class="filter-btn" data-category="Ciência">Ciência & Tecnologia</button>
+        <button class="filter-btn" data-category="Especial">Experiências Noturnas</button>
+      </div>
+
+      <!-- Tickets Grid (Dynamically rendered by JS) -->
+      <div class="tickets-grid" id="ticketsGrid">
+        <!-- Rendered dynamically -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Museum Features / Information Section -->
+  <section class="section features-section" id="experiencias">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="section-tag">A Sua Visita</span>
+        <h2 class="section-title">Por que comprar com o TicketUp?</h2>
+        <p class="section-subtitle">Garantia de comodidade, segurança e acesso imediato à cultura.</p>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          </div>
+          <h3 class="feature-title">Data e Horário Marcado</h3>
+          <p class="feature-text">Evite filas extensas escolhendo sua faixa de horário com controle de capacidade para máximo conforto.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </div>
+          <h3 class="feature-title">Envio Direto por E-mail</h3>
+          <p class="feature-text">Seus ingressos com QR Code chegam em segundos no e-mail cadastrado. Basta apresentar na catraca pelo celular.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <h3 class="feature-title">Direito à Meia-Entrada</h3>
+          <p class="feature-text">Estudantes, professores, idosos e jovens de baixa renda possuem 50% de desconto garantido por lei em todas as mostras.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+          </div>
+          <h3 class="feature-title">Acessibilidade Total</h3>
+          <p class="feature-text">Estrutura 100% acessível com elevadores, audiodescrição, intérpretes de Libras e piso tátil em todas as galerias.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About / Location Section -->
+  <section class="section about-section" id="sobre">
+    <div class="container about-grid">
+      <div class="about-image-column">
+        <img src="https://images.unsplash.com/photo-1565008447742-97f6f38c985c?auto=format&fit=crop&w=900&q=80" alt="Arquitetura do Museu" class="about-img" loading="lazy">
+        <div class="about-badge-floating">
+          <strong>Museu TicketUp</strong>
+          <span>Aberto Terça a Domingo • 09h às 20h</span>
+        </div>
+      </div>
+      <div class="about-content-column">
+        <span class="section-tag">Institucional</span>
+        <h2 class="section-title">Um Espaço Vivo de Conhecimento e Preservação</h2>
+        <p class="about-paragraph">
+          Fundado com a missão de conectar o público às mais importantes expressões artísticas e históricas da humanidade, o <strong>Museu TicketUp</strong> combina patrimônio histórico com inovação digital.
+        </p>
+        <p class="about-paragraph">
+          Nossa gestão inteligente de bilheteria permite que cada visitante usufrua de uma experiência agradável, sem superlotação, preservando tanto as obras de arte quanto o bem-estar do público.
+        </p>
+
+        <div class="museum-info-list">
+          <div class="info-row">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <div>
+              <strong>Endereço Cultural:</strong>
+              <p>Av. das Belas Artes, 1200 - Centro Histórico</p>
+            </div>
+          </div>
+          <div class="info-row">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            <div>
+              <strong>Horários de Funcionamento:</strong>
+              <p>Terça a Domingo e feriados: 09:00 às 20:00 (Entrada até às 19:00). Segunda-feira: Fechado para manutenção.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="section faq-section" id="faq">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="section-tag">Tire Suas Dúvidas</span>
+        <h2 class="section-title">Perguntas Frequentes</h2>
+      </div>
+
+      <div class="faq-accordion">
+        <details class="faq-item" open>
+          <summary class="faq-question">
+            <span>Como recebo meus ingressos após a compra simulada?</span>
+            <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </summary>
+          <div class="faq-answer">
+            <p>Assim que a simulação de compra é finalizada, seu ingresso com QR Code é exibido na tela e enviado instantaneamente para a <strong>Caixa de Entrada Simulada</strong> do site (botão no topo da página), além de permitir impressão ou salvamento em PDF.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-question">
+            <span>Quem tem direito à meia-entrada no museu?</span>
+            <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </summary>
+          <div class="faq-answer">
+            <p>Estudantes regularmente matriculados, professores e profissionais da rede pública e privada de ensino, pessoas com mais de 60 anos, e pessoas com deficiência e seu acompanhante. A comprovação documental será solicitada na catraca de entrada.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-question">
+            <span>Como a equipe do museu cria e edita ingressos?</span>
+            <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </summary>
+          <div class="faq-answer">
+            <p>Clique no botão <strong>"Painel Admin"</strong> no topo da página. Nele, os gestores do museu podem criar novas exposições, alterar valores de inteira/meia, alterar lotes, ativar ou pausar vendas, e consultar todas as compras registradas com histórico detalhado.</p>
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="main-footer">
+    <div class="container footer-container">
+      <div class="footer-brand">
+        <div class="brand-logo footer-logo">
+          <svg class="ticketup-logo-svg" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="48" height="48" rx="12" fill="#1D4ED8"/>
+            <path d="M14 14C14 12.8954 14.8954 12 16 12H32C33.1046 12 34 12.8954 34 14V19C32.3431 19 31 20.3431 31 22C31 23.6569 32.3431 25 34 25V34C34 35.1046 33.1046 36 32 36H16C14.8954 36 14 35.1046 14 34V25C15.6569 25 17 23.6569 17 22C17 20.3431 15.6569 19 14 19V14Z" fill="#FFFFFF"/>
+            <path d="M24 16L24 30M24 16L19 21M24 16L29 21" stroke="#09090B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span class="brand-name text-white">Ticket<span class="brand-accent">Up</span></span>
+        </div>
+        <p class="footer-text">
+          Sistema inteligente de bilheteria e gestão para museus e instituições culturais. Desenvolvido para máxima facilidade de hospedagem no GitHub Pages.
+        </p>
+      </div>
+
+      <div class="footer-links-col">
+        <h4 class="footer-title">Navegação</h4>
+        <ul>
+          <li><a href="#exposicoes">Exposições</a></li>
+          <li><a href="#experiencias">Experiências</a></li>
+          <li><a href="#sobre">Sobre o Museu</a></li>
+          <li><a href="#faq">Perguntas Frequentes</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-links-col">
+        <h4 class="footer-title">Administração</h4>
+        <ul>
+          <li><a href="javascript:void(0)" id="footerLinkAdmin">Acessar Painel Admin</a></li>
+          <li><a href="javascript:void(0)" id="footerLinkMailbox">Ver E-mails Simulados</a></li>
+          <li><a href="javascript:void(0)" id="footerLinkReset">Restaurar Dados Padrão</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-links-col">
+        <h4 class="footer-title">Cores & Identidade</h4>
+        <div class="color-palette-preview">
+          <div class="color-swatch" style="background:#ffffff; border:1px solid #ddd;" title="Branco"></div>
+          <div class="color-swatch" style="background:#1d4ed8;" title="Azul Royal"></div>
+          <div class="color-swatch" style="background:#3b82f6;" title="Azul Céu"></div>
+          <div class="color-swatch" style="background:#09090b;" title="Preto Ônix"></div>
+        </div>
+        <p class="footer-small">Identidade visual em Branco, Azul e Preto com logo customizável.</p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container footer-bottom-content">
+        <p>&copy; 2026 TicketUp Museu. Projeto pronto para publicação no GitHub Pages.</p>
+        <span class="badge-status">Status: Sistema Operacional Online</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============================================================ -->
+  <!-- MODAL: CHECKOUT / SIMULAÇÃO DE COMPRA DE INGRESSO -->
+  <!-- ============================================================ -->
+  <div class="modal-overlay" id="checkoutModal" role="dialog" aria-modal="true" aria-labelledby="modalExhibitionTitle" style="display: none;">
+    <div class="modal-card modal-lg">
+      <div class="modal-header">
+        <div class="modal-title-group">
+          <span class="modal-subtitle">Reserva de Ingressos</span>
+          <h3 class="modal-title" id="modalExhibitionTitle">Título da Exposição</h3>
+        </div>
+        <button class="modal-close-btn" id="btnCloseCheckout" aria-label="Fechar modal">&times;</button>
+      </div>
+
+      <div class="modal-body">
+        <form id="checkoutForm">
+          <input type="hidden" id="checkoutTicketId">
+
+          <!-- Step 1: Data e Horário -->
+          <div class="form-section">
+            <h4 class="form-section-title">
+              <span class="step-num">1</span>
+              Escolha a Data e o Horário
+            </h4>
+            <div class="form-row">
+              <div class="form-group flex-1">
+                <label for="visitDate">Data da Visita *</label>
+                <input type="date" id="visitDate" required>
+              </div>
+              <div class="form-group flex-1">
+                <label for="visitTimeSlot">Horário de Entrada *</label>
+                <select id="visitTimeSlot" required>
+                  <option value="">Selecione um horário...</option>
+                  <option value="09:30">09:30 - Manhã</option>
+                  <option value="11:00">11:00 - Manhã</option>
+                  <option value="14:00">14:00 - Tarde</option>
+                  <option value="16:00">16:00 - Tarde</option>
+                  <option value="18:30">18:30 - Noite</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 2: Ingressos e Quantidades -->
+          <div class="form-section">
+            <h4 class="form-section-title">
+              <span class="step-num">2</span>
+              Quantidade de Ingressos
+            </h4>
+            <div class="ticket-type-selector">
+              <!-- Inteira -->
+              <div class="ticket-type-row">
+                <div class="ticket-type-info">
+                  <strong>Ingresso Inteira</strong>
+                  <span class="ticket-type-desc">Acesso completo à exposição</span>
+                  <span class="ticket-price-display" id="displayFullPrice">R$ 0,00</span>
+                </div>
+                <div class="quantity-counter">
+                  <button type="button" class="btn-qty" id="btnMinusFull" aria-label="Diminuir inteira">-</button>
+                  <span class="qty-number" id="qtyFull">1</span>
+                  <button type="button" class="btn-qty" id="btnPlusFull" aria-label="Aumentar inteira">+</button>
+                </div>
+              </div>
+
+              <!-- Meia-entrada -->
+              <div class="ticket-type-row">
+                <div class="ticket-type-info">
+                  <strong>Ingresso Meia-Entrada (50% desc.)</strong>
+                  <span class="ticket-type-desc">Estudantes, professores, 60+ anos e PcD</span>
+                  <span class="ticket-price-display" id="displayHalfPrice">R$ 0,00</span>
+                </div>
+                <div class="quantity-counter">
+                  <button type="button" class="btn-qty" id="btnMinusHalf" aria-label="Diminuir meia">-</button>
+                  <span class="qty-number" id="qtyHalf">0</span>
+                  <button type="button" class="btn-qty" id="btnPlusHalf" aria-label="Aumentar meia">+</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 3: Dados do Comprador -->
+          <div class="form-section">
+            <h4 class="form-section-title">
+              <span class="step-num">3</span>
+              Dados para Recebimento dos Ingressos
+            </h4>
+            <div class="form-row">
+              <div class="form-group flex-1">
+                <label for="buyerName">Nome Completo *</label>
+                <input type="text" id="buyerName" placeholder="Ex: Júlia Ferreira" required>
+              </div>
+              <div class="form-group flex-1">
+                <label for="buyerEmail">Seu Melhor E-mail (Onde o ingresso será enviado) *</label>
+                <input type="email" id="buyerEmail" placeholder="exemplo@gmail.com" required>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group flex-1">
+                <label for="buyerDoc">CPF / Documento *</label>
+                <input type="text" id="buyerDoc" placeholder="000.000.000-00" required>
+              </div>
+              <div class="form-group flex-1">
+                <label for="buyerPhone">WhatsApp / Celular</label>
+                <input type="tel" id="buyerPhone" placeholder="(11) 99999-9999">
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 4: Método de Pagamento Simulado -->
+          <div class="form-section">
+            <h4 class="form-section-title">
+              <span class="step-num">4</span>
+              Forma de Pagamento (Ambiente de Simulação)
+            </h4>
+            <div class="payment-simulation-notice">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+              <span><strong>Aviso:</strong> Este é um ambiente de demonstração. Nenhum valor monetário real será cobrado.</span>
+            </div>
+
+            <div class="payment-method-selector">
+              <label class="payment-option selected">
+                <input type="radio" name="simulatedPayment" value="pix" checked>
+                <div class="payment-option-content">
+                  <div class="pay-title">⚡ Pix Instantâneo (Simulado)</div>
+                  <div class="pay-subtitle">Aprovação imediata e envio do ingresso</div>
+                </div>
+              </label>
+
+              <label class="payment-option">
+                <input type="radio" name="simulatedPayment" value="credit_card">
+                <div class="payment-option-content">
+                  <div class="pay-title">💳 Cartão de Crédito (Simulado)</div>
+                  <div class="pay-subtitle">Aprovação em segundos</div>
+                </div>
+              </label>
+            </div>
+          </div>
+
+          <!-- Order Summary & Submit -->
+          <div class="checkout-footer">
+            <div class="checkout-total-card">
+              <div class="total-detail">
+                <span id="summaryTicketsCount">1 ingresso selecionado</span>
+                <span class="total-label">Total a pagar:</span>
+              </div>
+              <div class="total-value" id="summaryTotalAmount">R$ 0,00</div>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block btn-lg" id="btnSubmitPurchase">
+              <span class="btn-text">Confirmar Compra Simulada & Emitir Ingressos</span>
+              <span class="btn-spinner" style="display: none;"></span>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- MODAL: INGRESSO DIGITAL COM QR CODE (VOUCHER FINAL) -->
+  <!-- ============================================================ -->
+  <div class="modal-overlay" id="ticketSuccessModal" role="dialog" aria-modal="true" style="display: none;">
+    <div class="modal-card modal-ticket-wrapper">
+      <div class="modal-header ticket-header-clean">
+        <div>
+          <span class="success-pill">✓ Compra Confirmada com Sucesso!</span>
+          <h3 class="modal-title">Seu Ingresso Digital Está Pronto</h3>
+        </div>
+        <button class="modal-close-btn" id="btnCloseSuccessModal">&times;</button>
+      </div>
+
+      <div class="modal-body">
+        <p class="ticket-helper-text">
+          Uma cópia completa com o voucher oficial foi enviada para o e-mail: <strong id="ticketSentEmail"></strong>.
+        </p>
+
+        <!-- Printable Museum Ticket Voucher -->
+        <div class="printable-ticket" id="printableTicketArea">
+          <div class="ticket-museum-brand">
+            <div class="ticket-brand-left">
+              <svg class="ticket-logo-mini" viewBox="0 0 48 48" fill="none">
+                <rect width="48" height="48" rx="8" fill="#1D4ED8"/>
+                <path d="M14 14H34V34H14V14Z" fill="#FFFFFF"/>
+                <path d="M24 16L24 30M24 16L19 21M24 16L29 21" stroke="#1D4ED8" stroke-width="2.5"/>
+              </svg>
+              <div>
+                <h4 class="ticket-brand-name">MUSEU TICKETUP</h4>
+                <span class="ticket-brand-code">VOUCHER ELETRÔNICO OFICIAL</span>
+              </div>
+            </div>
+            <div class="ticket-status-stamp">VÁLIDO</div>
+          </div>
+
+          <div class="ticket-body-content">
+            <div class="ticket-main-info">
+              <span class="ticket-label">EXPOSIÇÃO</span>
+              <h2 class="ticket-exhibition-title" id="tExhibition">Renascimento Imersivo</h2>
+
+              <div class="ticket-grid-details">
+                <div>
+                  <span class="ticket-label">DATA DA VISITA</span>
+                  <strong class="ticket-val" id="tDate">28/11/2026</strong>
+                </div>
+                <div>
+                  <span class="ticket-label">HORÁRIO</span>
+                  <strong class="ticket-val" id="tTime">14:00</strong>
+                </div>
+                <div>
+                  <span class="ticket-label">TITULAR</span>
+                  <strong class="ticket-val" id="tBuyer">Júlia Ferreira</strong>
+                </div>
+                <div>
+                  <span class="ticket-label">DOCUMENTO (CPF)</span>
+                  <strong class="ticket-val" id="tDoc">000.000.000-00</strong>
+                </div>
+              </div>
+
+              <div class="ticket-badges-row">
+                <span class="ticket-badge" id="tSummaryQty">1x Inteira</span>
+                <span class="ticket-badge ticket-badge-price" id="tTotalPrice">Total: R$ 60,00</span>
+                <span class="ticket-badge">Acesso: Ala Principal</span>
+              </div>
+            </div>
+
+            <!-- Ticket QR Code Stub -->
+            <div class="ticket-qr-stub">
+              <div class="qr-canvas-wrapper" id="qrContainer">
+                <!-- SVG / Canvas QR rendered dynamically -->
+                <canvas id="ticketQrCanvas" width="130" height="130"></canvas>
+              </div>
+              <span class="qr-code-text" id="tCode">TK-8941-2026</span>
+              <span class="qr-hint">Apresente na catraca</span>
+            </div>
+          </div>
+
+          <div class="ticket-rules-footer">
+            <p><strong>Avisos ao visitante:</strong> Apresente este voucher impresso ou na tela do celular junto a um documento oficial com foto. Para ingressos de meia-entrada, a comprovação é obrigatória. Entrada permitida com até 15 minutos de antecedência.</p>
+          </div>
+        </div>
+
+        <!-- Ticket Actions -->
+        <div class="ticket-action-buttons">
+          <button class="btn btn-outline-dark" id="btnPrintTicket">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+            Imprimir / Salvar PDF
+          </button>
+          <button class="btn btn-primary" id="btnOpenSentMail">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            Abrir na Caixa de E-mails Simulada
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- MODAL: CAIXA DE ENTRADA SIMULADA (CLIENTE DE E-MAIL EMBUTIDO) -->
+  <!-- ============================================================ -->
+  <div class="modal-overlay" id="mailboxModal" role="dialog" aria-modal="true" style="display: none;">
+    <div class="modal-card modal-lg">
+      <div class="modal-header">
+        <div class="modal-title-group">
+          <span class="modal-subtitle">Simulador de E-mail do Comprador</span>
+          <h3 class="modal-title">Caixa de Entrada (@ticketup.museu.br)</h3>
+        </div>
+        <button class="modal-close-btn" id="btnCloseMailbox">&times;</button>
+      </div>
+
+      <div class="modal-body p-0">
+        <div class="mailbox-layout">
+          <!-- Mail List Sidebar -->
+          <div class="mailbox-list-pane">
+            <div class="mailbox-list-header">
+              <span>Mensagens Recebidas</span>
+              <span class="mailbox-count" id="mailCountText">0 e-mails</span>
+            </div>
+            <div class="mail-items-container" id="mailItemsContainer">
+              <!-- Dynamically populated emails -->
+            </div>
+          </div>
+
+          <!-- Mail Content Pane -->
+          <div class="mailbox-read-pane" id="mailboxReadPane">
+            <div class="mail-empty-state" id="mailEmptyState">
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#94a3b8" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              <p>Selecione um e-mail para ler o voucher e a confirmação de compra.</p>
+            </div>
+
+            <div class="mail-full-view" id="mailFullView" style="display: none;">
+              <!-- Filled when clicked -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- MODAL: PAINEL ADMINISTRATIVO (CRUD DE INGRESSOS E VENDAS) -->
+  <!-- ============================================================ -->
+  <div class="modal-overlay" id="adminModal" role="dialog" aria-modal="true" style="display: none;">
+    <div class="modal-card modal-xl">
+      <div class="modal-header admin-modal-header">
+        <div>
+          <span class="admin-badge-pill">Área Administrativa TicketUp</span>
+          <h3 class="modal-title">Painel de Gestão de Ingressos & Vendas</h3>
+        </div>
+        <button class="modal-close-btn" id="btnCloseAdmin">&times;</button>
+      </div>
+
+      <div class="modal-body">
+        <!-- Admin Navigation Tabs -->
+        <div class="admin-nav-tabs">
+          <button class="admin-tab-btn active" data-admin-tab="tickets">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/></svg>
+            Gerenciar Ingressos & Exposições
+          </button>
+          <button class="admin-tab-btn" data-admin-tab="sales">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+            Relatório de Vendas (<span id="adminOrdersCount">0</span>)
+          </button>
+          <button class="admin-tab-btn" data-admin-tab="settings">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+            Ajustes do Museu
+          </button>
+        </div>
+
+        <!-- TAB 1: GESTÃO DE INGRESSOS -->
+        <div class="admin-tab-content active" id="tabAdminTickets">
+          <div class="admin-action-bar">
+            <div>
+              <h4 class="admin-tab-heading">Exposições & Ingressos Cadastrados</h4>
+              <p class="admin-tab-sub">Crie novos ingressos, altere preços, ajuste vagas ou pause vendas.</p>
+            </div>
+            <button class="btn btn-primary" id="btnOpenNewTicketForm">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              + Criar Novo Ingresso
+            </button>
+          </div>
+
+          <!-- Form: Criar ou Editar Ingresso (oculto por padrão) -->
+          <div class="admin-form-box" id="adminTicketFormBox" style="display: none;">
+            <div class="admin-form-header">
+              <h4 id="adminFormTitle">Cadastrar Novo Ingresso</h4>
+              <button class="btn btn-link btn-sm" id="btnCancelTicketForm">Cancelar</button>
+            </div>
+
+            <form id="ticketCrudForm">
+              <input type="hidden" id="crudTicketId">
+
+              <div class="form-row">
+                <div class="form-group flex-2">
+                  <label for="crudTitle">Título da Exposição / Evento *</label>
+                  <input type="text" id="crudTitle" placeholder="Ex: Arte Moderna Brasileira" required>
+                </div>
+                <div class="form-group flex-1">
+                  <label for="crudCategory">Categoria *</label>
+                  <select id="crudCategory" required>
+                    <option value="Arte">Arte & Pintura</option>
+                    <option value="História">História & Arqueologia</option>
+                    <option value="Ciência">Ciência & Tecnologia</option>
+                    <option value="Especial">Experiência Noturna</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group flex-1">
+                  <label for="crudPriceFull">Preço Inteira (R$) *</label>
+                  <input type="number" step="0.50" min="0" id="crudPriceFull" placeholder="50.00" required>
+                </div>
+                <div class="form-group flex-1">
+                  <label for="crudPriceHalf">Preço Meia-Entrada (R$) *</label>
+                  <input type="number" step="0.50" min="0" id="crudPriceHalf" placeholder="25.00" required>
+                </div>
+                <div class="form-group flex-1">
+                  <label for="crudCapacity">Capacidade / Lote Diário *</label>
+                  <input type="number" min="1" id="crudCapacity" placeholder="150" required>
+                </div>
+                <div class="form-group flex-1">
+                  <label for="crudStatus">Status de Venda *</label>
+                  <select id="crudStatus" required>
+                    <option value="active">À Venda (Ativo)</option>
+                    <option value="paused">Venda Pausada</option>
+                    <option value="soldout">Esgotado</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group flex-2">
+                  <label for="crudImage">URL da Imagem da Exposição</label>
+                  <input type="url" id="crudImage" placeholder="https://images.unsplash.com/...">
+                </div>
+                <div class="form-group flex-1">
+                  <label for="crudLocation">Local / Ala do Museu</label>
+                  <input type="text" id="crudLocation" placeholder="Ex: Ala Oeste - 2º Andar">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="crudDescription">Descrição da Exposição *</label>
+                <textarea id="crudDescription" rows="3" placeholder="Detalhes sobre as obras, acervo e horários de visita..." required></textarea>
+              </div>
+
+              <div class="form-submit-row">
+                <button type="button" class="btn btn-outline-dark" id="btnCancelTicketForm2">Cancelar</button>
+                <button type="submit" class="btn btn-primary" id="btnSaveTicket">Salvar Ingresso</button>
+              </div>
+            </form>
+          </div>
+
+          <!-- Table of Tickets -->
+          <div class="admin-table-responsive">
+            <table class="admin-table" id="adminTicketsTable">
+              <thead>
+                <tr>
+                  <th>Exposição</th>
+                  <th>Categoria</th>
+                  <th>Preços (Int / Meia)</th>
+                  <th>Vagas / Vendas</th>
+                  <th>Status</th>
+                  <th>Ações</th>
+                </tr>
+              </thead>
+              <tbody id="adminTicketsTableBody">
+                <!-- Populated dynamically -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- TAB 2: RELATÓRIO DE VENDAS -->
+        <div class="admin-tab-content" id="tabAdminSales" style="display: none;">
+          <div class="admin-action-bar">
+            <div>
+              <h4 class="admin-tab-heading">Histórico de Pedidos & Ingressos Emitidos</h4>
+              <p class="admin-tab-sub">Consulte compradores, valores arrecadados e e-mails disparados.</p>
+            </div>
+            <div class="sales-stats-badge">
+              <span>Total Arrecadado:</span>
+              <strong id="adminTotalRevenue">R$ 0,00</strong>
+            </div>
+          </div>
+
+          <div class="admin-table-responsive">
+            <table class="admin-table" id="adminSalesTable">
+              <thead>
+                <tr>
+                  <th>Cód. Voucher</th>
+                  <th>Data do Pedido</th>
+                  <th>Comprador & E-mail</th>
+                  <th>Exposição</th>
+                  <th>Qtd. Ingressos</th>
+                  <th>Total</th>
+                  <th>Ações</th>
+                </tr>
+              </thead>
+              <tbody id="adminSalesTableBody">
+                <!-- Dynamically populated -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- TAB 3: CONFIGURAÇÕES & AJUSTES -->
+        <div class="admin-tab-content" id="tabAdminSettings" style="display: none;">
+          <div class="settings-box">
+            <h4>Personalização do Museu</h4>
+            <p class="text-muted">Ajuste o nome do site, dados da instituição ou reinicie a base com os dados iniciais do museu.</p>
+
+            <div class="settings-action-card">
+              <div>
+                <strong>Restaurar Dados Padrão (Exposições de Demonstração)</strong>
+                <p>Retorna todas as exposições e limpa as compras de teste para o estado original de fábrica.</p>
+              </div>
+              <button class="btn btn-outline-danger" id="btnResetToDefaults">Restaurar Padrões</button>
+            </div>
+
+            <div class="settings-action-card">
+              <div>
+                <strong>Exportar Dados de Vendas (JSON)</strong>
+                <p>Baixe a lista de ingressos vendidos e histórico de compras simuladas para backup.</p>
+              </div>
+              <button class="btn btn-outline-dark" id="btnExportData">Exportar Backup</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification System -->
+  <div class="toast-container" id="toastContainer" aria-live="polite"></div>
+
+  <!-- Scripts -->
+  <script src="app.js"></script>
+</body>
+</html>
