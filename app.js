@@ -768,9 +768,12 @@ class TicketUpApp {
     const emailSubject = `Seus Ingressos para o Museu TicketUp chegaram! [${order.code}]`;
     const emailBodyHtml = `
       <div style="font-family: sans-serif; color: #09090b; max-width: 600px; margin: 0 auto; line-height: 1.6;">
-        <div style="background-color: #09090b; padding: 20px; border-radius: 8px 8px 0 0; color: #fff;">
-          <h2 style="margin: 0; font-size: 20px; color: #fff;">🎟️ Museu TicketUp - Confirmação de Ingressos</h2>
-          <span style="font-size: 13px; color: #93c5fd;">Pedido #${order.code} • Pagamento Simulado Aprovado</span>
+        <div style="background-color: #09090b; padding: 20px; border-radius: 8px 8px 0 0; color: #fff; display: flex; align-items: center; gap: 14px;">
+          <img src="assets/logo.jpg" alt="TicketUp" style="width: 44px; height: 44px; object-fit: contain; background: #fff; border-radius: 8px; padding: 2px;">
+          <div>
+            <h2 style="margin: 0; font-size: 19px; color: #fff;">Museu TicketUp - Confirmação de Ingressos</h2>
+            <span style="font-size: 13px; color: #93c5fd;">Pedido #${order.code} • Pagamento Simulado Aprovado</span>
+          </div>
         </div>
         
         <div style="padding: 24px; border: 1px solid #e2e8f0; border-top: none; background-color: #ffffff; border-radius: 0 0 8px 8px;">

@@ -12,14 +12,11 @@ O projeto foi desenvolvido seguindo rigorosamente a identidade solicitada:
 * **Azul (`#1D4ED8` / `#2563EB` / `#3B82F6` / `#DBEAFE`)**: Destaques, botões de ação (CTA), links e acentos vibrantes.
 * **Preto (`#09090B` / `#18181B`)**: Elementos institucionais de alto contraste, tipografia marcante, barra de avisos e rodapé elegante.
 
-### 🖼️ Como trocar a Logo Facilmente
-A logo foi concebida de forma modular e escalável:
-1. No arquivo `index.html`, localize o bloco `<a href="#" class="brand-logo">` (por volta da linha 40).
-2. Substitua o elemento `<svg class="ticketup-logo-svg">` pela imagem de sua preferência:
-   ```html
-   <img src="caminho/para/sua-logo.png" alt="Logo TicketUp" style="height: 44px;">
-   ```
-3. O mesmo vale para a logo no rodapé e no voucher do ingresso.
+### 🖼️ Identidade Visual e Mascote Oficial
+O site agora conta com o mascote oficial do **TicketUp**: o pinguim simpático segurando o bilhete com estrelas.
+* O arquivo está localizado em `assets/logo.jpg`.
+* Ele é utilizado automaticamente no **cabeçalho**, no **rodapé**, no **voucher oficial de impressão**, na **aba do navegador (favicon)** e no **cabeçalho dos e-mails simulados**.
+* Caso deseje alterar futuramente, basta substituir o arquivo `assets/logo.jpg` mantendo o mesmo nome.
 
 ---
 
@@ -47,17 +44,18 @@ Acesse a qualquer momento clicando no botão **"Painel Admin"** no topo da pági
 
 ## 🚀 Como Hospedar no GitHub Pages (Passo a Passo)
 
-Como o projeto é composto por arquivos estáticos puros (`index.html`, `style.css` e `app.js`), ele funciona imediatamente e sem custo algum no **GitHub Pages**.
+Como o projeto é composto por arquivos estáticos puros (`index.html`, `style.css`, `app.js` e a pasta `assets/`), ele funciona imediatamente e sem custo algum no **GitHub Pages**.
 
 ### Opção A: Pelo Navegador (Sem precisar instalar o Git)
 1. Acesse [github.com](https://github.com) e crie um novo repositório (exemplo: `ticketup-museu`).
 2. Marque o repositório como **Public** (Público).
 3. Na página inicial do repositório recém-criado, clique em **"uploading an existing file"** (ou arraste os arquivos para a página).
-4. Arraste todos os arquivos desta pasta:
+4. Arraste todos os arquivos e pastas deste projeto:
    - `index.html`
    - `style.css`
    - `app.js`
    - `README.md`
+   - Pasta `assets` (contendo `logo.jpg`)
 5. Clique no botão verde **"Commit changes"**.
 6. Vá na aba **Settings** (Configurações) do repositório no GitHub.
 7. No menu lateral esquerdo, clique em **Pages**.
